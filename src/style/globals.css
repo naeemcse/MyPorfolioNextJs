@@ -83,7 +83,19 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  } 
+  /* defined for global margin and border for theme  */
+  .container{
+    @apply bg-card text-card-foreground border-2 rounded-lg mt-[30px] p-[30px]
   }
+  /* For Image zoom on hover  */
+  .photo{
+    @apply transition-all duration-300 hover:scale-[110%]
+  }
+}
+@layer components {
+
+ 
 }
 
 /* styles for typography this are example of shadcn ui . So i set it globallu in globals.css */

@@ -1,4 +1,3 @@
-import { FaceIcon } from "@radix-ui/react-icons";
 import { Facebook, Github, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -6,7 +5,7 @@ import { Button } from "../ui/button";
 
 const SideBar = () => {
   return (
-    <div className="bg-card rounded-lg text-card-foreground m-10">
+    <div className="mx-5">
       <div className="mx-auto flex justify-center">
         <Image
           src="/naeem_1.png"
@@ -16,7 +15,7 @@ const SideBar = () => {
           title="Naeem"
         />
       </div>
-      <div className="mt-[25px]">
+      <div className="my-[30px]">
         <div className="text-center">
           <h3 className="uppercase ">
             <span className="text-secondary-foreground"> Hy! I'm </span>
@@ -66,8 +65,8 @@ const SideBar = () => {
               </button>
             </a>
           </div>
-        <Button className="w-full my-5"> Hire Me  </Button>
-        <Button className="w-full  bg-background"> Download CV  </Button>
+        <Button className="w-full my-5 hover:bg-background"> Hire Me  </Button>
+        <Button className="w-full bg-background"> Download CV  </Button>
 
         </div>
       </div>
