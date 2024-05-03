@@ -2,21 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* theme color like green  */
+    --primary: 151 86.5% 56.3%;
+    /* --primary-foreground: 355.7 100% 97.3%; */
+    /* This card will be every card or div bg  color  */
     --card: 0 0% 100%;
+
+    /*  foreground is not spesified yet  */
     --card-foreground: 240 10% 3.9%;
+
+    /* Secondary will be for black text color white for dark mode  */
+    --secondary: 0 0% 100%;
+
+    /* foreground is not defined yet */
+    --secondary-foreground: 252 5.9% 16.7%;
+
+    /* muted is for gray text  */
+    --muted: 225 1.9% 57.9%;
+
+    --muted-foreground: 240 3.8% 46.1%;
+
+    /* main body last part  */
+    --background: 206 23% 94%;
+
+    --foreground: 240 10% 3.9%;
+
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
@@ -28,18 +43,29 @@
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 0 0% 95%;
-    --card: 24 9.8% 10%;
-    --card-foreground: 0 0% 95%;
+    --primary: 151 86.5% 56.3%;
+    /* --primary-foreground: 144.9 80.4% 10%; */
+
+    --card: 250 9.7% 12.2%;
+
+
+ --card-foreground: 0 0% 95%;
+    --secondary: 252 5.9% 16.7%;
+
+
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 225 1.9% 57.9%;
+
+    --muted-foreground: 240 5% 64.9%;
+
+    --background: 0 0 15%;
+    --foreground: 0 0 0;
+    
+   
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
-    --primary: 142.1 70.6% 45.3%;
-    --primary-foreground: 144.9 80.4% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 240 5% 64.9%;
+
     --accent: 12 6.5% 15.1%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
@@ -74,7 +100,7 @@ h2 {
 }
 
 a {
-  @apply font-medium text-primary underline underline-offset-4;
+  @apply font-medium underline underline-offset-4;
 }
 
 blockquote {
@@ -103,4 +129,10 @@ th {
 
 td {
   @apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
+}
+
+/* For whole meanu and link style  */
+menu > ol,
+ul > li > a {
+  text-decoration: none;
 }
