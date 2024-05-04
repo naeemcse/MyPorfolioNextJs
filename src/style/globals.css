@@ -92,6 +92,10 @@
   .photo{
     @apply transition-all duration-300 hover:scale-[110%]
   }
+/*    For making grid of 12 column */
+    .grid-12{
+        @apply grid grid-cols-12 gap-[30px]
+    }
 }
 @layer components {
 
