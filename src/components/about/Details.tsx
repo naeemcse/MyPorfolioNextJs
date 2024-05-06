@@ -1,8 +1,10 @@
 import React from 'react';
 import Image from "next/image";
+import Link from "next/link";
 
 const Details = () => {
     return (
+        <>
         <div className="container flex flex-col md:flex-row  justify-between">
             <div className="w-full md:w-1/3 ">
                 <Image src="/naeem_1.png" className="mx-auto" width={300} height={350} alt='Naeem' title='Naeem' />
@@ -15,13 +17,47 @@ const Details = () => {
                     <p className="text-muted -ml-12">Projects Completed</p>
                     <h1 className=" text-primary"> 10+</h1>
                     <p className="text-justify -ml-12 text-muted">Satisfied Clients</p>
-
-
                 </div>
             </div>
 
         </div>
-    );
+            <div className="">
+                <div className="grid-12">
+                    <div className="container col-span-12 md:col-span-6">
+                        <h2>Experience</h2>
+                        <div className="mt-10">
+                            <span className="text-muted block">2022-present</span>
+                            <span className="block">Assistant developer with <Link
+                                href=""> Muhibur Rahman  </Link> </span>
+                        </div>
+                        <div className="mt-10">
+                            <span className="text-muted block">2022-present</span>
+                            <span className="block">  Full stack Web Developer (MERN) </span>
+
+                        </div>
+
+                    </div>
+                    <div className="container col-span-12 md:col-span-6">
+                        <h2>Education</h2>
+                        <div className="mt-10">
+                            <span className="text-muted block">2020-present</span>
+                            <span className="block">Research on Software & Web Application </span>
+                            <span className="block text-muted
+                            "> Ostad || Learn with Summit || Programming Hero  </span>
+
+                        </div>
+                        <div className="mt-10">
+                            <span className="text-muted block">2020-2024</span>
+                            <span className="block">  BSc in CSE at Comilla University </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </>);
 };
 
 export default Details;
