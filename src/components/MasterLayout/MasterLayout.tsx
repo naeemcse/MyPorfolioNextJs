@@ -11,7 +11,7 @@ const MasterLayout = ({ children }: { children: React.ReactNode }) => {
          </div>
       </header>
       <div className="grid grid-cols-12 mx-auto w-full md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px]">
-        <div className="col-span-12 lg:col-span-3 bg-card border-2 rounded-lg mt-[30px] ">
+        <div className="col-span-12 lg:col-span-3 bg-card border-2 rounded-lg mt-[30px] h-fit">
           <SideBar/>
         </div>
         <div className="col-span-12 lg:col-span-9 lg:ml-[30px]">

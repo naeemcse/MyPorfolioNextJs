@@ -22,7 +22,7 @@ const SideBar = () => {
             <span className="text-primary"> Najmul Islam</span>
           </h3>
           <span> Software Engineer </span>
-          <p>
+          <p className="text-secondary-foreground">
             {" "}
             csenajmulislamnaeem@gmail.com <br />
             018 672 10 892
@@ -65,8 +65,8 @@ const SideBar = () => {
               </button>
             </a>
           </div>
-        <Button className="w-full my-5 hover:bg-background"> Hire Me  </Button>
-        <Button className="w-full bg-background"> Download CV  </Button>
+        <Button className="w-full my-5 hover:bg-background rounded-3xl"> Hire Me  </Button>
+        <Button className="w-full bg-background rounded-3xl"> Download CV  </Button>
 
         </div>
       </div>
