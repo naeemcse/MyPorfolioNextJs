@@ -53,10 +53,8 @@ const Details = () => {
                         </div>
 
                     </div>
-
                 </div>
             </div>
-
         </>);
 };
 

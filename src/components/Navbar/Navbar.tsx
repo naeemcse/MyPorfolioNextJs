@@ -30,7 +30,7 @@ const Navbar = () => {
             <li>
               <a
                 className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
-                href=""
+                href="/about"
               >
                 {" "}
                 About me{" "}
@@ -39,7 +39,7 @@ const Navbar = () => {
             <li>
               <a
                 className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
-                href=""
+                href="/contact"
               >
                 {" "}
                 Hire me{" "}

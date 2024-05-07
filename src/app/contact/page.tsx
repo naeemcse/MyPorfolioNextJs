@@ -1,15 +1,14 @@
 import React from 'react';
-import Details from "@/components/about/Details";
-import Experience from "@/components/about/Experience";
+import MassageForm from "@/components/contact/MassageForm";
 import Address from "@/components/contact/Address";
+import GoogleMap from "@/components/contact/GoogleMap";
 
 const Page = () => {
     return (
         <div>
-            <Details/>
-            <Experience/>
+        <MassageForm/>
+            <GoogleMap/>
             <Address/>
-
         </div>
     );
 };
