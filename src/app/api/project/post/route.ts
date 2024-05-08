@@ -9,24 +9,23 @@ export const POST = async(req:Request,res)=>{
     try{
         const reqBody = await req.json();
         await connectToDatabase();
-        const result = await prisma.post.create({
+        const result = await prisma.project.create({
             data:reqBody
         });
         return NextResponse.json({
             status: "success",
-            message: "Blog post Done  successfully",
+            message: "Project posted successfully",
             data: result
         });
 
     }catch(error){
         console.log(error);
         return NextResponse.json({
-            message: "Something went wrong with the blog post"
+            message: "Something went wrong with Project post"
         });
     }
     finally{
         await prisma.$disconnect();
-
     }
 
 }
@@ -36,18 +35,17 @@ export const DELETE = async(req:Request,res)=>{
         let id = searchParams.get('id') ;
       
         await connectToDatabase();
-        const result = await prisma.post.delete({
+        const result = await prisma.project.delete({
             where: {
                 id: id
             }
         });
         return NextResponse.json({
             status: "success",
-            message: "Blog post deleted successfully",
+            message: "Project post deleted successfully",
         });
     }
     catch(error){
-        console.log(error);
                 return NextResponse.json({
             message: "Something went wrong with the blog post delete"
         });

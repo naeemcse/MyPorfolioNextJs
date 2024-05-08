@@ -11,28 +11,22 @@ export const POST = async(req:Request,res)=>{
         let id = searchParams.get('id') ;
         const reqBody = await req.json();
         await connectToDatabase();
-        const result = await prisma.post.update({
+        const result = await prisma.project.update({
             where: {
-            id:id
+            id: id
             },
-            data:
-            {
-                title: reqBody.title,
-                image: reqBody.image,
-                body: reqBody.body,
-                link: reqBody.link
-                }
+            data: reqBody
         });
         return NextResponse.json({
             status: "success",
-            message: "Blog post Update  successfully",
+            message: "Project updated successfully",
             data: result
         });
 
     }catch(error){
         console.log(error);
         return NextResponse.json({
-            message: "Something went wrong with the blog post update",
+            message: "Something went wrong with the Project update",
             error: error
         });
     }
