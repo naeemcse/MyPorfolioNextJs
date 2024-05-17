@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
-
+// User Create when post method will be called with name email,password
 export const POST = async(req:Request,res)=>{
     try{
         const {name, email, password} = await req.json();
@@ -30,6 +30,32 @@ export const POST = async(req:Request,res)=>{
         console.log(error);
         return NextResponse.json({
             message: "Something went wrong"
+        });
+    }
+    finally{
+        await prisma.$disconnect();
+
+    }
+
+}
+
+// User will find wheb GET method is called
+
+export const GET = async(req:Request,res)=>{
+    try{
+
+        await connectToDatabase();
+        const user = await prisma.user.findMany();
+
+        return NextResponse.json({
+            data: user,
+            status: "success"
+        });
+
+    }catch(error){
+        console.log(error);
+        return NextResponse.json({
+            message: "Server Error"
         });
     }
     finally{

@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import '@/style/globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import MasterLayout from '@/components/MasterLayout/MasterLayout'
-
+import AuthProvider from "@/components/authProvider/AuthProvider";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -27,7 +27,9 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <MasterLayout>
+                <AuthProvider>
               {children}
+                </AuthProvider>
             </MasterLayout>
             
           </ThemeProvider>
