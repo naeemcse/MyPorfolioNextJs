@@ -25,13 +25,13 @@ export default function RootLayout({
             defaultTheme="day"
             enableSystem
             disableTransitionOnChange
-          >
+          > <AuthProvider>
             <MasterLayout>
-                <AuthProvider>
+
               {children}
-                </AuthProvider>
+              
             </MasterLayout>
-            
+      </AuthProvider>
           </ThemeProvider>
         
         
