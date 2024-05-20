@@ -12,62 +12,60 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
 model User {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  email String
-  name  String
-  otp   String?
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  email    String
+  name     String
+  otp      String?
   password String
- 
 }
 
+// blog post shema 
 model Post {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  image String?
-  body  String
-  link String?
-  comments Comment[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  image     String?
+  body      String
+  link      String?
+  comments  Comment[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
-model Comment{
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  post Post @relation(fields: [postId], references: [id])
-  postId String
-  name  String
-  email String
-  comment  String
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  name      String
+  email     String
+  comment   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  
 }
 
 model Massage {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name  String
-  email String
-  message  String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  message   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
 }
 
 model Project {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  subtitle String?
-  image String?
-  body  String
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  subtitle     String?
+  image        String?
+  body         String
   technologies String?
-  client String?
-  github String?
-  live String?
-  category String?
-  totalviews Int @default(10)
+  client       String?
+  github       String?
+  live         String?
+  category     String?
+  totalviews   Int     @default(10)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
 }
