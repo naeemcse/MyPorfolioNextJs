@@ -66,18 +66,16 @@ const WrittingField = () => {
                                 ["image"]: res[0].url
                             });
                             setImageURL(res[0].url);
-
-
                         }}
                         onUploadError={(error: Error) => {
                             // Do something with the error.
                             // alert(`ERROR! ${error.message}`);
+                            console.log(error);
                         }}
                     />
                     {
                         imageURL.length ? (<Image src={imageURL} width={500} height={200} alt=""/>) : null
                     }
-
 
                 </section>
 
