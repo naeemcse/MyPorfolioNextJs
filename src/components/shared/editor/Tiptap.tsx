@@ -1,9 +1,7 @@
 'use client'
 // @ts-ignore
 
-// import { Color } from "@tiptap/extension-color";
-
-import React from 'react'
+import React,{useeffect} from 'react'
 import {common, createLowlight} from 'lowlight'
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import ListItem from "@tiptap/extension-list-item";
@@ -19,7 +17,10 @@ import Placeholder from '@tiptap/extension-placeholder'
 import Code from '@tiptap/extension-code'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from "@tiptap/extension-text-align";
+import {Color} from "@tiptap/extension-color";
+
 // import Image from '@tiptap/extension-image'
+
 import {  useEditor, EditorContent } from '@tiptap/react'
 import MenuBar from "./MenuBar";
 const lowlight = createLowlight(common)
@@ -28,12 +29,22 @@ const Tiptap = ({setHtmlContent}) => {
 
     const editor = useEditor({
         extensions: [
-            StarterKit,
+            StarterKit.configure({
+                // make them false for not duplicating as i installed already
+                bulletList: false,
+                listItem: false,
+                orderedList: false,
+                codeBlock: false,
+                paragraph:false,
+                text:false,
+                document:false,
+                code:false
+            }),
             TextAlign.configure({
                 types: ["heading", "paragraph"],
                 defaultAlignment: "left",
             }),
-            // Color.configure({ types: [TextStyle, ListItem.name] }),
+            Color,
             TextStyle,Document, Paragraph,Text,
             BulletList.configure({
                 HTMLAttributes: {
@@ -57,39 +68,23 @@ const Tiptap = ({setHtmlContent}) => {
                 lowlight,
             }),
         ],
+        onUpdate: ({ editor }) => {
+            // Update HTML content on every change
+            setHtmlContent(editor.getHTML());
+        },
     })
     if (!editor) {
         return null
     }
-
-    const handleEditorChanges = () => {
-        const html = editor?.getHTML();
-        setHtmlContent(html) ;
-        // const json = editor?.getJSON();
-        // const text = editor?.getText();
-        // console.log("Html ====>", html);
-        // console.log("JSON ====>", json);
-        // console.log("Text ====>", text);
-    };
-
     if (!editor) {
         return null
     }
-
     return (
         <div>
             <div className="text-black border-2 border-white rounded-xl bg-background">
-
                 <MenuBar editor={editor}/>
                 <EditorContent className="border-t " editor={editor}/>
             </div>
-            <button
-                type="button"
-                onClick={handleEditorChanges}
-                className="w-auto p-2.5 text-center mx-auto bg-primary text-foreground border border-white rounded-md "
-            >
-                Save
-            </button>
 
         </div>
     )

@@ -1,10 +1,11 @@
 "use client"
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { FormEvent,ChangeEvent  } from 'react';
 import  ImageUploader from "./ImageUploader"
 import Image from "next/image";
 import { UploadButton,UploadDropzone } from "@/utils/uploadthing";
 import Tiptap from "@/components/shared/editor/Tiptap";
+import {SuccessToast} from "@/utils/Toaster";
 
 
 const WrittingField = () => {
@@ -23,16 +24,33 @@ const WrittingField = () => {
             [name]: value
         });
     };
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    useEffect(() => {
+        setFormData({
+            ...formData,
+            ['body']: htmlContent
+        });
+
+    }, [htmlContent]);
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Handle form submission logic here
         console.log(formData);
-    };
+        const options = { method: "POST", body: JSON.stringify(formData) };
 
+        let res = await (await fetch(`/api/blog/post`, options)).json();
+
+        if (res["status"] === "success") {
+            SuccessToast("Request Success");
+
+            //   router.push("/user/verifyOTP");
+        } else {
+            ErrorToast("Invalid Request ! ");
+        }
+        // console.log(formData);
+    };
     return (
         <div>
-            <form>
-
+            <form onSubmit={handleSubmit}>
                 <input type="text" name="title" value={formData.title} onChange={handleInputChange}
                        placeholder="Title"
                        className="w-full text-2xl text-center font-extrabold p-2 outline-none mb-4"/>
@@ -53,7 +71,7 @@ const WrittingField = () => {
                         }}
                         onUploadError={(error: Error) => {
                             // Do something with the error.
-                            alert(`ERROR! ${error.message}`);
+                            // alert(`ERROR! ${error.message}`);
                         }}
                     />
                     {
@@ -65,25 +83,21 @@ const WrittingField = () => {
 
                 <Tiptap setHtmlContent={setHtmlContent}/>
 
-                <input type="text" name="body" value={formData.body} onChange={handleInputChange} placeholder="body"
-                       className="w-full border p-2 rounded-md mb-4"/>
-
                 <input type="body" name="link" value={formData.link} onChange={handleInputChange} placeholder="link"
-                       className="w-full border p-2 rounded-md mb-4"/>
+                       className="w-full border p-2 rounded-md my-4"/>
 
                 <div className="flex justify-end">
-                    <button type="button" onClick={handleSubmit}
+                    <button type="submit"
                             className="px-4 py-2 bg-blue-500 text-white rounded-md"> Submit
                     </button>
                 </div>
             </form>
-
-            <div>
-                data : {formData.image}
-            </div>
-
         </div>
     );
 };
 
 export default WrittingField;
+
+function ErrorToast(arg0: string) {
+    throw new Error('Function not implemented.');
+}

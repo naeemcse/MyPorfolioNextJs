@@ -5,6 +5,7 @@ import "@uploadthing/react/styles.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import MasterLayout from '@/components/MasterLayout/MasterLayout'
 import AuthProvider from "@/components/authProvider/AuthProvider";
+import { Toaster } from 'react-hot-toast';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function RootLayout({
       </AuthProvider>
           </ThemeProvider>
         
-        
+        <Toaster/>
         </body>
     </html>
   )
