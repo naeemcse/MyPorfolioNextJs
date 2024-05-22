@@ -1,9 +1,10 @@
 // @ts-ignore
+// @ts-nocheck
 import React from 'react';
 import hljs from "highlight.js";
 import parse, { domToReact } from 'html-react-parser';
 //import 'highlight.js/styles/github.css'; // Choose a style you like
-const BlogDetails = ({body}) => {
+const BlogDetails = ({body}:{body:String}) => {
     const options = {
         replace: ({ name, children, attribs }) => {
             if (name === 'pre' && children[0].name === 'code') {
@@ -35,11 +36,13 @@ const BlogDetails = ({body}) => {
             }
         },
     };
-
+    const safeBody = typeof body === 'string' ? body : '';
     return (
         <div>
-            {parse(body, options)}
+
+            {parse(safeBody, options)}
         </div>
+
     );
 };
 

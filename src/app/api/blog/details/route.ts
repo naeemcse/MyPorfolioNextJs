@@ -1,33 +1,20 @@
-// @ts-nocheck
 import { connectToDatabase } from "@/helper/server-helper";
 import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client'
-import {toLowerCase} from "effect/String";
 
 const prisma = new PrismaClient()
+
 export const GET = async(req:Request,res:NextResponse)=>{
     try{
         let {searchParams} = new URL(req.url) ;
-        let keyword = toLowerCase (searchParams.get('keyword') );
+        let id = (searchParams.get('id')) ;
+        console.log(id)
         await connectToDatabase();
-        const result = await prisma.post.findMany({
-            where: {
-                OR: [
-                    {
-                        title: {
-                            contains: keyword
-                        }
-                    },
-                    {
-                        body: {
-                            contains: keyword
-                        }
-                    }
-                ]
-            },
+        const result = await prisma.post.findFirst({
             orderBy: {
                 createdAt: 'desc'
-            }
+            },include:{comments:true} ,
+            where:{id:id},
         });
         return NextResponse.json({
             status: "success",
