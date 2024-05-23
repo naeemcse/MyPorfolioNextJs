@@ -25,9 +25,10 @@ import {  useEditor, EditorContent } from '@tiptap/react'
 import MenuBar from "./MenuBar";
 const lowlight = createLowlight(common)
 
-const Tiptap = ({setHtmlContent}) => {
+const Tiptap = ({setHtmlContent,content=""}) => {
 
     const editor = useEditor({
+        content:content,
         extensions: [
             StarterKit.configure({
                 // make them false for not duplicating as i installed already

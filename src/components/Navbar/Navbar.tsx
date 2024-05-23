@@ -30,8 +30,8 @@ const Navbar = () => {
           <ul className="list-none flex gap-4 ">
             <li>
               <a
-                className="text-muted hover:text-secondary-foreground active:text-primary "
-                href="/"
+                  className="text-muted hover:text-secondary-foreground active:text-primary "
+                  href="/"
               >
                 {" "}
                 Home{" "}
@@ -39,8 +39,8 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
-                href="/about"
+                  className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
+                  href="/about"
               >
                 {" "}
                 About me{" "}
@@ -48,20 +48,28 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
-                href="/contact"
+                  className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
+                  href="/blog"
+              >
+                Blog
+              </a>
+            </li>
+            <li>
+              <a
+                  className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
+                  href="/contact"
               >
                 {" "}
                 Hire me{" "}
               </a>
             </li>
             {
-                status==="authenticated" && (<li>
+                status === "authenticated" && (<li>
                   <a
                       className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
                       href="/dashboard"
                   >
-                  Dashboard
+                    Dashboard
                   </a>
                 </li>)}
 
@@ -74,7 +82,7 @@ const Navbar = () => {
           </div>
 
           <button className="rounded-full border border-[#919295] p-[10px] text-[20px] ml-2 ">
-            <svg
+          <svg
                 xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
