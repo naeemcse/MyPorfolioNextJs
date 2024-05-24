@@ -6,8 +6,11 @@ import Image from "next/image";
 import { UploadButton,UploadDropzone } from "@/utils/uploadthing";
 import Tiptap from "@/components/shared/editor/Tiptap";
 import {SuccessToast} from "@/utils/Toaster";
+import { useRouter } from 'next/navigation'
 
 const WrittingField = ({post=""}) => {
+    const router = useRouter()
+
     const [formData, setFormData] = useState({
         title: "",
         image: "",
@@ -50,8 +53,8 @@ const WrittingField = ({post=""}) => {
 
         if (res["status"] === "success") {
             SuccessToast("Your Blog is Updated");
+            router.push('/blog')
 
-            //   router.push("/user/verifyOTP");
         } else {
             ErrorToast("Update failed");
         }
@@ -83,9 +86,9 @@ const WrittingField = ({post=""}) => {
                             console.log(error);
                         }}
                     />
-                    {
-                        imageURL.length ? (<Image src={imageURL} width={500} height={200} alt=""/>) : null
-                    }
+                  {
+                        imageURL? (<Image src={imageURL} width={500} height={200} alt=""/>) : null
+                  }
 
                 </section>
 

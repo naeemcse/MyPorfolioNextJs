@@ -5,6 +5,7 @@ import Container from '@/components/shared/container/Container';
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {useSession} from "next-auth/react";
+import Image from "next/image";
 
 const Details = ({id}) => {
     const [posts, setPosts] = useState([]);
@@ -40,6 +41,9 @@ const Details = ({id}) => {
                         status==="authenticated" && ( <Link href={`/blog/update?id=${id}`} > <Button> Update </Button></Link>)
                     }
             </div>
+                {
+                    posts.image ? (<Image className="w-full h-max-[200px] mx-auto " src={ posts.image} width={500} height={200} alt=""/>) : null
+                }
                 <BlogDetails body={posts.body} />
                 <div className="flex m-2">
                     <span> Reference :</span> <a className="no-underline" href={posts.link || ""} target="_blank"

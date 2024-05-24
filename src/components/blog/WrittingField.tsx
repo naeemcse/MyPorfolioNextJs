@@ -6,9 +6,12 @@ import Image from "next/image";
 import { UploadButton,UploadDropzone } from "@/utils/uploadthing";
 import Tiptap from "@/components/shared/editor/Tiptap";
 import {SuccessToast} from "@/utils/Toaster";
+import {useRouter} from "next/navigation";
 
 
 const WrittingField = () => {
+    const router = useRouter()
+
     const [formData, setFormData] = useState({
         title: '',
         image: '',
@@ -41,8 +44,7 @@ const WrittingField = () => {
 
         if (res["status"] === "success") {
             SuccessToast("Request Success");
-
-            //   router.push("/user/verifyOTP");
+            router.push('/blog')
         } else {
             ErrorToast("Invalid Request ! ");
         }
