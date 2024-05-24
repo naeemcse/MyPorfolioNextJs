@@ -54,7 +54,7 @@ model Massage {
 }
 
 model Project {
-  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   title        String
   subtitle     String?
   image        String?
@@ -64,8 +64,7 @@ model Project {
   github       String?
   live         String?
   category     String?
-  totalviews   Int     @default(10)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  totalviews   Int      @default(10)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
