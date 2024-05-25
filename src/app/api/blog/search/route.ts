@@ -10,17 +10,20 @@ export const GET = async(req:Request,res:NextResponse)=>{
         let {searchParams} = new URL(req.url) ;
         let keyword = toLowerCase (searchParams.get('keyword') );
         await connectToDatabase();
+        console.log(keyword)
         const result = await prisma.post.findMany({
             where: {
                 OR: [
                     {
                         title: {
-                            contains: keyword
+                            contains: keyword,
+                            mode: 'insensitive', // Case-insensitive matching
                         }
                     },
                     {
                         body: {
-                            contains: keyword
+                            contains: keyword,
+                            mode: 'insensitive', // Case-insensitive matching
                         }
                     }
                 ]

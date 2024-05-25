@@ -8,7 +8,7 @@ import {SuccessToast} from "@/utils/Toaster";
 import {useRouter} from "next/navigation";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
-
+import { Textarea } from "@/components/ui/textarea"
 
 const Postproject = () => {
     const router = useRouter()
@@ -86,7 +86,7 @@ const Postproject = () => {
                     }
 
                 </section>
-                <input type="text" name="subtitle" value={formData.subtitle} onChange={handleInputChange}
+                <Textarea  type="text" name="subtitle" value={formData.subtitle} onChange={handleInputChange}
                        placeholder="Subitle"
                        className="w-full text-2xl text-center font-extrabold p-2 outline-none mb-4"/>
                 <Tiptap setHtmlContent={setHtmlContent}/>
@@ -94,7 +94,7 @@ const Postproject = () => {
                 {/*comma Separated Technology */}
                 <Input type="text" name="technologies" value={formData.technologies} onChange={handleInputChange}
                        placeholder="Comma separated list of technologies"
-                       className="w-full text-2xl text-center font-extrabold p-2 outline-none mb-4"/>
+                       className="w-full text-2xl mt-3 font-extrabold p-2 outline-none mb-4"/>
 
                 <Input type="text" name="client" value={formData.client} onChange={handleInputChange} placeholder="link"
                        className="w-full border p-2 rounded-md my-4"/>

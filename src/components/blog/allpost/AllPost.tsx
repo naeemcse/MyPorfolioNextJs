@@ -8,7 +8,7 @@ const AllPost = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/blog');
+                const response = await fetch('/api/blog');
                 if (response.ok) {
                     const result = await response.json();
                   //  console.log('Fetched data:', result); // Debugging line to log the API response
