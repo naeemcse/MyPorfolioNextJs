@@ -9,7 +9,7 @@ const Page = (props) => {
         <div>
             <Container>
                 <SearchBar/>
-                {/*<AllPost/>*/}
+                {/*<AllProject/>*/}
                 <ResultBlogs keyword={keyword}/>
             </Container>
 

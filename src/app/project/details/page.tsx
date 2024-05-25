@@ -1,11 +1,11 @@
 import React from 'react';
-import Details from "@/components/blog/Details";
+import Details from "@/components/project/details/Details";
 
 const Page = (props) => {
     let id=props.searchParams['id'];
     return (
         <div>
-            <Details id={id}/>
+            <Details id={id} />
         </div>
     );
 };

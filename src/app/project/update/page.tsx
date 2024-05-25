@@ -1,9 +1,10 @@
 import React from 'react';
 import UpdateField from "@/components/blog/update/UpdateField";
 import Container from "@/components/shared/container/Container";
+import UpdateProject from "@/components/project/update/UpdateProject";
 
 async function getData(id) {
-    let post = (await (await fetch(`${process.env.HOST}/api/blog/details/?id=${id}`)).json())['data'];
+    let post = (await (await fetch(`${process.env.HOST}/api/project/details/?id=${id}`)).json())['data'];
     return { post: post };
 }
 const Page = async (props) => {
@@ -11,10 +12,8 @@ const Page = async (props) => {
     let data=await getData(id);
     return (
         <Container>
-
-            <UpdateField post={data.post}/>
-            {/*{JSON.stringify(data.post)}*/}
-
+            {/*<UpdateField post={data.post}/>*/}
+          <UpdateProject post={data.post} />
         </Container>
     );
 };
