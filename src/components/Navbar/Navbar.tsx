@@ -5,8 +5,13 @@ import { ModeToggle } from "@/components/ModeToggle";
 import React from "react";
 import Link from "next/link";
 import LogInLogout from "@/components/Navbar/LogInLogout";
+import {usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const router = usePathname ();
+  // Define a helper function to determine if a route is active
+  const isActive = (path: string) => router === path;
+
   const { data,status} = useSession()
   const logoutHandeler =()=>{
     signOut({ callbackUrl: 'http://localhost:3000/' })
@@ -14,6 +19,13 @@ const Navbar = () => {
   const logintHandeler =()=>{
     signIn( undefined,{ callbackUrl: 'http://localhost:3000/' })
   }
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'About me', path: '/about' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Hire me', path: '/contact' },
+    { name: 'Dashboard', path: '/dashboard', auth: true }, // Optional: requires authentication
+  ];
   return (
     <div className="">
       <div className="flex justify-between items-center">
@@ -28,22 +40,22 @@ const Navbar = () => {
         </div>
         <menu className="hidden md:block">
           <ul className="list-none flex gap-4 ">
-            <li>
-              <a
-                  className="text-muted hover:text-secondary-foreground active:text-primary "
+            {/*}   <li>
+              <Link
+                  className={`hover:text-secondary-foreground nav-link ${router.pathname ==="/" ? 'text-primary' : 'text-muted'}`}
                   href="/"
               >
                 {" "}
                 Home{" "}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                  className="text-muted  active:text-primary  hover:text-secondary-foreground ease-in duration-200 transition-all"
-                  href="/about"
-              >
-                {" "}
-                About me{" "}
+              <a className={`nav-link ${isActive('/about') ? 'text-primary ' : 'text-muted'} hover:text-secondary-foreground ease-in duration-200 transition-all`}
+                 href="/about">
+                About me
+              </a>
+              <a className={`nav-link ${isActive('/about') ? 'text-primary bg-blue-500' : 'text-gray-300'}`}>
+                About
               </a>
             </li>
             <li>
@@ -72,8 +84,21 @@ const Navbar = () => {
                     Dashboard
                   </a>
                 </li>)}
+            */}
 
-          </ul>
+          {navItems.map((item) => {
+            if (item.auth && status !== "authenticated") return null;
+            return (
+                <li key={item.path}>
+                    <Link href={item.path}
+                        className={`${isActive(item.path) ? 'text-primary' : 'text-muted'} hover:text-secondary-foreground ease-in duration-200 transition-all`}
+                    >
+                      {item.name}
+                    </Link>
+
+                </li>
+            );
+          })}</ul>
         </menu>
         <div className="flex items-center">
           <div className="mx-2 text-muted"><LogInLogout/></div>
