@@ -1,19 +1,17 @@
 import React from 'react';
 import AllPost from "@/components/blog/allpost/AllPost";
 import Container from "@/components/shared/container/Container"
-import SearchBar from "@/components/blog/allpost/search/SearchBar";
-import ResultBlogs from "@/components/blog/allpost/search/ResultBlogs";
+import SearchBar from "@/components/project/search/SearchBar";
+import ResultProject from "@/components/project/search/ResultProject";
 const Page = (props) => {
     let keyword=props.searchParams['keyword'];
     return (
-        <div>
             <Container>
-                <SearchBar/>
+               <SearchBar word={keyword}/>
                 {/*<AllProject/>*/}
-                <ResultBlogs keyword={keyword}/>
-            </Container>
+                <ResultProject keyword={keyword}/>
 
-        </div>
+            </Container>
     );
 };
 

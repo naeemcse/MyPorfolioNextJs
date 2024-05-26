@@ -48,24 +48,33 @@ const Details = ({id}) => {
             }
             <h3> {posts.subtitle} </h3>
             <BlogDetails body={posts.body} />
+            <Tags tagString={posts.technologies}/>
+
             <Tags tagString={posts.category}/>
-            <div>
                 <div className="flex m-2">
-                    <span className="w-1/2"> Reference :</span> <a className="no-underline" href={posts.link || ""} target="_blank"
-                                                 rel="noopener noreferrer">Link</a>
+                    <span className="w-1/2"> Reference :</span> <a className="no-underline" href={posts.link || ""}
+                                                                   target="_blank"
+                                                                   rel="noopener noreferrer">Link</a>
                 </div>
                 <div className="flex m-2">
-                    <span className="w-1/2">  github :</span> <a className="no-underline" href={posts.github || ""} target="_blank"
-                                                 rel="noopener noreferrer">Link</a>
+                    <span className="w-1/2">  github :</span> <a className="no-underline" href={posts.github || ""}
+                                                                 target="_blank"
+                                                                 rel="noopener noreferrer">Link</a>
                 </div>
                 <div className="flex m-2">
-                    <span className="w-1/2"> live :</span> <a className="no-underline" href={posts.live || ""} target="_blank"
-                                                 rel="noopener noreferrer">Link</a>
+                    <span className="w-1/2"> live :</span> <a className="no-underline" href={posts.live || ""}
+                                                              target="_blank"
+                                                              rel="noopener noreferrer">Link</a>
+                </div>
+                <div className="flex m-2">
+                    { posts.video && (<> <span className="w-1/2"> live :</span> <a className="no-underline" href={posts.video || ""}
+                                                              target="_blank"
+                                                              rel="noopener noreferrer">Demo </a> </> )}
                 </div>
                 <div>
                     <span className="w-1/2"> <EyeIcon className="inline text-primary"/> {posts.totalviews} </span>
                 </div>
-            </div>
+
         </Container>
     );
 };

@@ -63,6 +63,7 @@ model Project {
   client       String?
   github       String?
   live         String?
+  video        String?
   category     String?
   totalviews   Int      @default(10)
   createdAt    DateTime @default(now())

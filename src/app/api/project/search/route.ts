@@ -14,16 +14,19 @@ export const GET = async(req:Request,res:NextResponse)=>{
                 OR: [
                     {
                         title: {
-                            contains: keyword
+                            contains: keyword,
+                            mode: 'insensitive',
                         }
                     },
                     {
                         body: {
-                            contains: keyword
+                            contains: keyword,
+                            mode: 'insensitive',
                         }
                     }, {
                         subtitle: {
-                            contains: keyword
+                            contains: keyword,
+                            mode: 'insensitive',
                         }
                     }
                 ]

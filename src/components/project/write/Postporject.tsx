@@ -22,6 +22,7 @@ const Postproject = () => {
         client:'',
         github:'',
         live:'',
+        video:'',
         category:''
     });
     const [imageURL,setImageURL]  = useState("") ;
@@ -103,6 +104,9 @@ const Postproject = () => {
 
             <Input type="text" name="live" value={formData.live} onChange={handleInputChange} placeholder="live"
                    className="w-full border p-2 rounded-md my-4" />
+
+                <Input type="text" name="video" value={formData.video} onChange={handleInputChange} placeholder="live"
+                       className="w-full border p-2 rounded-md my-4" />
                 <Input type="text" name="category" value={formData.category} onChange={handleInputChange} placeholder="Categories"
                        className="w-full border p-2 rounded-md my-4" />
 
