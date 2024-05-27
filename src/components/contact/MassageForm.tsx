@@ -4,57 +4,75 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import {useState} from "react";
 import {Button} from "@/components/ui/button";
-
-
+import {ErrorToast, SuccessToast} from "@/utils/Toaster";
+import {useRouter} from "next/navigation";
 const MassageForm = () => {
-    const [formData,setFormData] = useState({
-        name:"",
-        email:"",
-        subject:"",
-        massage:""
+    const router = useRouter()
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
     })
-const handleInputChange = (e)=>{
-    const { name, value } = e.target;
-    setFormData({
-        ...formData,
-        [name]: value,
-    });
-};
-    const handleSubmit = (e)=>{
+    const handleInputChange = (e) => {
+        const {name, value} = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
+        // console.log(formData);
+        const options = {method: "POST", body: JSON.stringify(formData)};
+      //  console.log(mailres);
+
+       let res = await (await fetch(`/api/message`, options)).json();
+        if (res["status"] === "success") {
+            SuccessToast("Request Success");
+            let mailSend = await (await fetch(`/api/sendmail`, options)).json();
+            alert("Message sent!");
+            router.push('/')
+        } else {
+            ErrorToast("Invalid Request ! ");
+        }
     }
-    return (
-        <div className="container flex flex-col gap-[30px]">
-            <div>
-                <h1> Let’s Chat  <span className="text-primary"> !</span></h1>
-                <p className="text-muted">Feel free to contact us through Twitter or Facebook if you prefer!</p>
-            </div>
+        return (
+            <div className="container flex flex-col gap-[30px]">
+                <div>
+                    <h1> Let’s Chat <span className="text-primary"> !</span></h1>
+                    <p className="text-muted">Feel free to contact us through Twitter or Facebook if you prefer!</p>
+                </div>
 
 
-            <div className="flex flex-col md:flex-row gap-[30px] ">
+                <div className="flex flex-col md:flex-row gap-[30px] ">
 
-                <Input
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Name" />
+                    <Input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Name"/>
 
-                <Input
-                    name="email"
-                    value={formData.email}
+                    <Input
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="Email"/>
+
+                </div>
+                <Textarea
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleInputChange}
-                    placeholder="Email" />
-
-        </div>
-            <Textarea
-                name="massage"
-                value={formData.massage}
-                onChange={handleInputChange}
-                placeholder="Massage" />
-            <Button className="max-w-60 mx-auto" onClick={handleSubmit}>Submit</Button>
-        </div>
-    );
-};
+                    placeholder="Subject"/>
+                <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Message"/>
+                <Button className="max-w-60 mx-auto" onClick={handleSubmit}>Submit</Button>
+            </div>
+        );
+    };
 
 export default MassageForm;

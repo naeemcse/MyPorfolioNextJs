@@ -9,6 +9,7 @@ import {useRouter} from "next/navigation";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea"
+// import {usePathname} from "next/navigation";
 
 const Postproject = () => {
     const router = useRouter()
@@ -46,12 +47,12 @@ const Postproject = () => {
         // Handle form submission logic here
         // console.log(formData);
         const options = { method: "POST", body: JSON.stringify(formData) };
-        //
+
         let res = await (await fetch(`/api/project/post`, options)).json();
         //
         if (res["status"] === "success") {
             SuccessToast("Request Success");
-            // router.push('/')
+            router.push('/')
         } else {
             ErrorToast("Invalid Request ! ");
         }
