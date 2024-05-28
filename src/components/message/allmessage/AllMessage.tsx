@@ -1,18 +1,25 @@
-'use client'
-import React, {useEffect, useState} from 'react';
-import Projectdiv from "@/components/project/projectdiv/Projectdiv";
-
-const AllProject = () => {
-    const [posts, setPosts] = useState([]);
+"use client"
+import React, {useEffect,useState} from 'react';
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
+import  MessageTable from "./MessageTable"
+const AllMessage = () => {
+const [messages, setMessages] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/api/project');
+                const response = await fetch('/api/message');
                 if (response.ok) {
                     const result = await response.json();
-                  //  console.log('Fetched data:', result); // Debugging line to log the API response
                     if (result && result.data) {
-                        setPosts(result.data);
+                        setMessages(result.data);
                     } else {
                         console.error('Data format is incorrect:', result);
                     }
@@ -24,15 +31,14 @@ const AllProject = () => {
             }
         };
         fetchData();
-
     }, []);
 
     return (
-        <>
-        {/*<BlogBox blogs={posts}/>*/}
-            <Projectdiv blogs={posts} />
-        </>
+        <div>
+            {/*{JSON.stringify(messages)}*/}
+<MessageTable/>
+        </div>
     );
 };
 
-export default AllProject;
+export default AllMessage;

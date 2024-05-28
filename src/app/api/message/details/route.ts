@@ -5,35 +5,13 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export const POST = async(req:Request,res)=>{
-    try{
-        const reqBody = await req.json();
-        await connectToDatabase();
-        const result = await prisma.massage.create({
-          data: reqBody 
-        });
-        return NextResponse.json({
-            status: "success",
-            message: "Massage is sent successfully",
-            data: result
-        });
-
-    }catch(error){
-        console.log(error);
-        return NextResponse.json({
-            message: "Failed to send the massage",
-            error: error
-        });
-    }
-    finally{
-        await prisma.$disconnect();
-
-    }
-}
 export const GET = async(req:Request,res)=>{
     try{
+        let {searchParams} = new URL(req.url) ;
+        let id = (searchParams.get('id')) ;
         await connectToDatabase();
-        const result = await prisma.massage.findMany({
+        const result = await prisma.massage.findFirst({
+            where:{id:id}
         });
         return NextResponse.json({
             status: "success",
@@ -50,7 +28,31 @@ export const GET = async(req:Request,res)=>{
     }
     finally{
         await prisma.$disconnect();
-
     }
+}
 
+export const DELETE = async(req:Request,res)=>{
+    try{
+        let {searchParams} = new URL(req.url) ;
+        let id = (searchParams.get('id')) ;
+        await connectToDatabase();
+        const result = await prisma.massage.delete({
+            where:{id:id}
+        });
+        return NextResponse.json({
+            status: "success",
+            message: "Massage delete successfully",
+            data: result
+        });
+
+    }catch(error){
+        console.log(error);
+        return NextResponse.json({
+            message: "Failed to delete the massage",
+            error: error
+        });
+    }
+    finally{
+        await prisma.$disconnect();
+    }
 }
