@@ -34,7 +34,11 @@ export const GET = async(req:Request,res)=>{
     try{
         await connectToDatabase();
         const result = await prisma.massage.findMany({
-        });
+     orderBy:[
+         {
+             createdAt: "desc"
+         }
+     ]  });
         return NextResponse.json({
             status: "success",
             message: "Massage fetched successfully",

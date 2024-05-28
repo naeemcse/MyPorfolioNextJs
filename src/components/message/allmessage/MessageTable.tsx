@@ -14,7 +14,6 @@ import {
     useReactTable,
 } from "@tanstack/react-table"
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -34,6 +33,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
+    TableCaption,
 } from "@/components/ui/table"
 import {useEffect, useState} from "react";
 import DaysAgo from  "@/components/shared/dayago/DaysAgo"
@@ -46,7 +46,7 @@ const deleteMessage = async (id) => {
                 });
                 if (response.ok) {
                     const result = await response.json();
-                    console.log('Deleted:', result); // Debugging line to log the API response
+                //    console.log('Deleted:', result); // Debugging line to log the API response
                 } else {
                     throw new Error('Failed to delete data');
                 }
@@ -101,7 +101,7 @@ export type Payment = {
 export const columns: ColumnDef<Payment>[] = [
     {
         // accessorkey is assigned for sortrin on basis of email, i will change it into date
-        accessorKey: "email",
+        accessorKey: "date",
       header: ({ column }) => {
          return (
         <Button
@@ -159,7 +159,7 @@ export const columns: ColumnDef<Payment>[] = [
         id: "actions",
         enableHiding: false,
         cell: ({ row }) => {
-            const messsege = row.original
+            const message = row.original
 
             return (
                 <DropdownMenu>
@@ -177,8 +177,10 @@ export const columns: ColumnDef<Payment>[] = [
                         {/*    Copy payment ID*/}
                         {/*</DropdownMenuItem>*/}
                         <DropdownMenuSeparator />
-                        {/*<DropdownMenuItem onclick={deleteMessage(messsege.id)} > Delete Massage </DropdownMenuItem>*/}
+                        <DropdownMenuItem onClick={() => deleteMessage(message.id)} > Delete Message </DropdownMenuItem>
                         {/*<DropdownMenuItem> <a href={`/message/details?id=${messsege.id}`}>Details </a> </DropdownMenuItem>*/}
+                        <DropdownMenuItem> <a className="no-underline" href={`/message/details?id=${message.id}`}>Details </a> </DropdownMenuItem>
+
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
@@ -215,7 +217,6 @@ export default function DataTableDemo() {
     const [columnVisibility, setColumnVisibility] =
         React.useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = React.useState({})
-
     const table = useReactTable({
         data,
         columns,
@@ -237,6 +238,7 @@ export default function DataTableDemo() {
 
     return (
         <div className="w-full">
+            <h3 className="text-center text-primary"> All Received Message </h3>
             <div className="flex items-center py-4">
                 <Input
                     placeholder="Filter emails..."
@@ -249,7 +251,7 @@ export default function DataTableDemo() {
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline" className="ml-auto">
-                            Columns <ChevronDown className="ml-2 h-4 w-4" />
+                            Columns <ChevronDown className="ml-2 h-4 w-4"/>
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
@@ -273,8 +275,10 @@ export default function DataTableDemo() {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
+
             <div className="rounded-md border">
                 <Table>
+                    <TableCaption> List of Message .</TableCaption>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -325,8 +329,7 @@ export default function DataTableDemo() {
             </div>
             <div className="flex items-center justify-end space-x-2 py-4">
                 <div className="flex-1 text-sm text-muted-foreground">
-                    {table.getFilteredSelectedRowModel().rows.length} of{" "}
-                    {table.getFilteredRowModel().rows.length} row(s) selected.
+                    Total Messege: {table.getFilteredRowModel().rows.length}
                 </div>
                 <div className="space-x-2">
                     <Button

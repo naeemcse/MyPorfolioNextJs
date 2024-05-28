@@ -6,7 +6,6 @@ const Page = () => {
     return (
         <Container>
                 <AllMessage/>
-
         </Container>
     );
 };
