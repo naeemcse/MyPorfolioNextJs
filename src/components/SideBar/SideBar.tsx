@@ -1,9 +1,22 @@
+"use client";
 import { Facebook, Github, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const SideBar = () => {
+  const onButtonClick = () => {
+    console.log("downlod hoi ki na")
+    const pdfUrl = "/Naeem_CV.pdf";
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "CV of Naeem .pdf"; // specify the filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="mx-5">
       <div className="mx-auto flex justify-center">
@@ -65,8 +78,8 @@ const SideBar = () => {
               </button>
             </a>
           </div>
-        <Button className="w-full my-5 hover:bg-background rounded-3xl"> Hire Me  </Button>
-        <Button className="w-full bg-background rounded-3xl"> Download CV  </Button>
+        <Button className="w-full my-5 hover:bg-background rounded-3xl"> <Link className="no-underline" href="/contact"> Hire Me   </Link></Button>
+        <Button className="w-full bg-background rounded-3xl" onClick={onButtonClick}> Download CV  </Button>
 
         </div>
       </div>

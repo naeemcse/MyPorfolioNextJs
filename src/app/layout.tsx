@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import MasterLayout from '@/components/MasterLayout/MasterLayout'
 import AuthProvider from "@/components/authProvider/AuthProvider";
 import { Toaster } from 'react-hot-toast';
+import NextTopLoader from 'nextjs-toploader';
+import React from "react";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -35,8 +37,9 @@ export default function RootLayout({
             </MasterLayout>
       </AuthProvider>
           </ThemeProvider>
-        
+
         <Toaster/>
+        <NextTopLoader   color="#2eef92" />
         </body>
     </html>
   )

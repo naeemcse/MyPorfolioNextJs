@@ -6,6 +6,7 @@ import React from "react";
 import Link from "next/link";
 import LogInLogout from "@/components/Navbar/LogInLogout";
 import {usePathname } from "next/navigation";
+import TypeWriterText from "@/components/shared/animation/TypeWriterText";
 
 const Navbar = () => {
   const router = usePathname ();
@@ -19,15 +20,16 @@ const Navbar = () => {
   const logintHandeler =()=>{
     signIn( undefined,{ callbackUrl: 'http://localhost:3000/' })
   }
+  const animationText = ['Hire me ', 'Message Me' ]
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About me', path: '/about' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Hire me', path: '/contact' },
+    { name: <div className="w-[105px] text-primary">  <TypeWriterText  cursor={true} words={animationText}/></div>, path: '/contact'  },
     { name: 'Dashboard', path: '/dashboard', auth: true }, // Optional: requires authentication
   ];
   return (
-    <div className="">
+    <div>
       <div className="flex justify-between items-center">
         <div className="logo">
           <Image
