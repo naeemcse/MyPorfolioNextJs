@@ -18,7 +18,6 @@ const MainGrid = () => {
             <a
               href="/about"
               className="no-underline"
-              target="_blank"
               rel="noopener noreferrer"
             >
               <h1 className="uppercase text-secondary-foreground">
@@ -45,7 +44,6 @@ const MainGrid = () => {
                 <a
                     href="/service"
                     className="no-underline"
-                    target="_blank"
                     rel="noopener noreferrer"
                 >
                     <h1 className="uppercase text-secondary-foreground">
@@ -85,7 +83,6 @@ const MainGrid = () => {
                       <a
                           href="/project"
                           className="no-underline"
-                          target="_blank"
                           rel="noopener noreferrer"
                       >
                           <h1 className="uppercase text-secondary-foreground">
@@ -101,7 +98,6 @@ const MainGrid = () => {
                           <a
                               href="/blog"
                               className="no-underline"
-                              target="_blank"
                               rel="noopener noreferrer"
                           >
                               <h1 className="uppercase text-secondary-foreground">
@@ -115,7 +111,6 @@ const MainGrid = () => {
                           <a
                               href="/contact"
                               className="no-underline"
-                              target="_blank"
                               rel="noopener noreferrer"
                           >
                               <h1 className="uppercase text-secondary-foreground text-2xl">
@@ -131,7 +126,6 @@ const MainGrid = () => {
         <a
             href="/testimonial"
             className="no-underline"
-            target="_blank"
             rel="noopener noreferrer"
         >
             <h1 className="uppercase text-secondary-foreground">

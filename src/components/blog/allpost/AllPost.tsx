@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useState} from 'react';
+import React, {Suspense, useEffect, useState} from 'react';
 import BlogBox from "@/components/blog/allpost/BlogBox";
 
 const AllPost = () => {

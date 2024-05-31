@@ -4,8 +4,10 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import {useState} from "react";
 import {Button} from "@/components/ui/button";
-import {ErrorToast, SuccessToast} from "@/utils/Toaster";
+// import {ErrorToast, SuccessToast} from "@/utils/Toaster";
 import {useRouter} from "next/navigation";
+import {ErrorToast, IsEmail, IsEmpty, SuccessToast} from "@/utils/FormHelper";
+
 const MassageForm = () => {
     const router = useRouter()
     const [formData, setFormData] = useState({
@@ -24,17 +26,30 @@ const MassageForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // console.log(formData);
-        const options = {method: "POST", body: JSON.stringify(formData)};
-      //  console.log(mailres);
-
-       let res = await (await fetch(`/api/message`, options)).json();
-        if (res["status"] === "success") {
-            SuccessToast("Request Success");
-            let mailSend = await (await fetch(`/api/sendmail`, options)).json();
-            alert("Message sent!");
-            router.push('/')
-        } else {
-            ErrorToast("Invalid Request ! ");
+        if(IsEmpty(formData.name)) {
+            ErrorToast("Name is required");
+        }
+        else if(IsEmail(formData.email) ){
+            ErrorToast("Email is required");
+        }
+        else if(IsEmpty(formData.subject)) {
+            ErrorToast("Subject is required");
+        }
+        else if(IsEmpty(formData.message)) {
+            ErrorToast("Message is required");
+        }
+        else {
+            const options = {method: "POST", body: JSON.stringify(formData)};
+            //  console.log(mailres);
+            let res = await (await fetch(`/api/message`, options)).json();
+            if (res["status"] === "success") {
+                SuccessToast("Request Success");
+                let mailSend = await (await fetch(`/api/sendmail`, options)).json();
+                alert("Message sent!");
+                router.push('/')
+            } else {
+                ErrorToast("Invalid Request ! ");
+            }
         }
     }
         return (
@@ -58,7 +73,6 @@ const MassageForm = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="Email"/>
-
                 </div>
                 <Textarea
                     name="subject"
@@ -70,7 +84,7 @@ const MassageForm = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Message"/>
-                <Button className="max-w-60 mx-auto" onClick={handleSubmit}>Submit</Button>
+                <Button className="max-w-60 mx-auto" onClick={handleSubmit}>Send Message</Button>
             </div>
         );
     };
