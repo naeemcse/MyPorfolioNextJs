@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import SideBar from "@/components/SideBar/SideBar";
-import RightSidebar from "@/components/MasterLayout/RightSidebar";
+import RightSidebar from "@/components/SideBar/rightSidebar/RightSidebar";
 import MassageForm from "@/components/contact/MassageForm";
 import Container from "@/components/shared/container/Container";
 

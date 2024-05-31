@@ -1,11 +1,12 @@
 import React from 'react';
 import { Skeleton } from "@/components/ui/skeleton"
 import BlogSkeleton from "@/components/shared/skeleton/BlogSkeleton";
+import RightSidebar from "@/components/SideBar/rightSidebar/RightSidebar";
 
 const Page = () => {
     return (
         <div className="container">
-            <BlogSkeleton/>
+       <RightSidebar/>
         </div>
     );
 };
