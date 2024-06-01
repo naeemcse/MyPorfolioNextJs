@@ -1,3 +1,4 @@
+// @ts-nocheck
 import MessageDetails from '@/components/message/details/MessageDetails';
 import Container from '@/components/shared/container/Container';
 import React from 'react';

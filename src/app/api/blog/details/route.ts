@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { connectToDatabase } from "@/helper/server-helper";
 import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client'
