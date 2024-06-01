@@ -27,7 +27,7 @@ const MessageDetails = ({id}) => {
     }, []);
     return (
         <div>
-            <div className="max-w-lg mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+            <div className="max-w-lg mx-auto my-8 p-6 bg-card shadow-lg rounded-lg">
                 <h1 className="text-2xl font-bold mb-4">Message Details</h1>
                 <div className="text-left space-y-2">
                     <p><strong>ID:</strong> {message.id}</p>

@@ -11,7 +11,7 @@ const Details = () => {
             </div>
             <div className="w-full  md:w-2/3 flex flex-col">
                 <h1 className="text-secondary-foreground mt-10"> About Me <span className="text-primary">!</span> </h1>
-                <p className="text-justify text-muted"> My favorite in this programming sector is to fix ‍any Errors. Because in every error there is hope to learn something new. I won't quit until I can fix the error. In this programming life, I have tried to solve all kinds of problems and have succeeded. My policy is to stick with it until the problem is solved. Contact us today, and let's bring your vision to life with the power of Full stack development. </p>
+                <p className="text-justify text-muted"> My favorite in this programming sector is to fix ‍any Errors. Because in every error there is hope to learn something new. I won &apos t quit until I can fix the error. In this programming life, I have tried to solve all kinds of problems and have succeeded. My policy is to stick with it until the problem is solved. Contact us today, and let us bring your vision to life with the power of Full stack development. </p>
                 <div className="flex justify-between items-center">
                     <h1 className=" text-primary">20+</h1>
                     <p className="text-muted -ml-12">Projects Completed</p>
