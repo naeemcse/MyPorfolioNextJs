@@ -4,10 +4,9 @@ const IntroCard = () => {
   return (
     <section className="w-full mt-[30px] container">
       <div className="p-2 text-justify">
-        <p className="mt-8"> Hi ! There I &apos m </p>
-        <h1 className="uppercase no-underline mt-[20px] text-[50px] ">
-          {" "}
-          Professional{" "}
+        <p className="mt-8 text-center"> <span className="text-primary"> Hi! </span> There I&#39;m </p>
+        <h1 className="uppercase no-underline mt-[20px]  md:text-[50px] text-center">
+          Professional
           <span className="text-primary"> Full-Stack <br/> Web Developer </span>{" "}
         </h1>
         <p className="text-muted my-10">

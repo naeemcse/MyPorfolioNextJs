@@ -31,10 +31,10 @@ const SideBar = () => {
       <div className="my-[30px]">
         <div className="text-center">
           <h3 className="uppercase ">
-            <span className="text-secondary-foreground"> Hy! I &apos m </span>
+            <span className="text-secondary-foreground"> Hy! I&#39;m </span>
             <span className="text-primary"> Najmul Islam</span>
           </h3>
-          <span> Software Engineer </span>
+          <span className="text-primary"> Software Engineer </span>
           <p className="text-secondary-foreground">
             {" "}
             csenajmulislamnaeem@gmail.com <br />
