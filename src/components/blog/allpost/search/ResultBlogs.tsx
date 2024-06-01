@@ -7,7 +7,7 @@ const ResultBlogs = ({keyword}:{keyword:String}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/blog/search?keyword=${keyword}`);
+                const response = await fetch(`/api/blog/search?keyword=${keyword}`);
                 if (response.ok) {
                     const result = await response.json();
                     //  console.log('Fetched data:', result); // Debugging line to log the API response
