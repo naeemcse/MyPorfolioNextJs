@@ -1,11 +1,11 @@
 //@ts-nocheck
 // @ts-ignore
-import NextAuth, {NextAuthOptions} from "next-auth"
+import NextAuth from "next-auth"
 import { connectToDatabase } from "@/helper/server-helper";
 import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client'
 import CredentialsProvider from "next-auth/providers/credentials";
-
+import type { NextAuthOptions } from "next-auth";
 const prisma = new PrismaClient()
 
 export const authOptions:NextAuthOptions ={
