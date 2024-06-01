@@ -71,10 +71,10 @@ const MainGrid = () => {
               <div className="container">
                   <div className="flex justify-center gap-5">
                       <div className="overflow-hidden rounded-lg">
-                          <img className="photo w-auto h-[100px]" src="/asset/images/web_app_cover.png" alt=""/>
+                          <Image className="photo w-auto h-[100px]" src="/asset/images/web_app_cover.png" alt="" width={100} height={100}/>
                       </div>
                       <div className="overflow-hidden rounded-lg">
-                          <img className="photo w-auto h-[100px]" src="/asset/images/web_app_cover2.png" alt=""/>
+                          <Image className="photo w-auto h-[100px]" src="/asset/images/web_app_cover2.png" alt="" width={100} height={100}/>
                       </div>
 
                   </div>
@@ -107,7 +107,7 @@ const MainGrid = () => {
                       </div>
                       <div className="col-span-6 container">
 
-                          <p className="text-sm "> Let's Work  </p>
+                          <p className="text-sm "> Let&#39;s Work  </p>
                           <a
                               href="/contact"
                               className="no-underline"

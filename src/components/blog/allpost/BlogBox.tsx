@@ -1,5 +1,6 @@
 import React from 'react';
 import Date from "@/components/blog/allpost/DaysAgo";
+import Image from "next/image";
 const BlogBox = ({blogs}) => {
     return (
         <div>
@@ -9,10 +10,11 @@ const BlogBox = ({blogs}) => {
                         blogs.map(blog => (
                             <div key={blog.id} className="p-4 md:w-1/2 hover:scale-105 transition duration-300 ease-in-out">
                                 <div className="border-2 border-gray-200 rounded-lg">
-                                    <img
+                                    <Image
                                         className="object-cover object-center w-full h-[250px]"
                                         src={ blog.image || "/asset/images/web_app_cover.png"}
                                         alt="blog"
+                                        width={400} height={250}
                                     />
                                     <div className="p-6">
                                         <div className="flex justify-between ">   <span
