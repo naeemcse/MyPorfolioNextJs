@@ -14,7 +14,7 @@ export const GET = async(req:Request,res:NextResponse)=>{
         let id: string = searchParams.get('id') ?? '';
         await connectToDatabase();
         const result = await prisma.post.findFirst({
-            include:{comments:true} ,
+            // include:{comments:true} ,
             where:{id:id},
         });
         return NextResponse.json({
@@ -26,7 +26,8 @@ export const GET = async(req:Request,res:NextResponse)=>{
     }catch(error){
         console.log(error);
         return NextResponse.json({
-            message: "Something went wrong with the blog post"
+            message: "details dekha jacce na",
+            error: error
         });
     }
     finally{
