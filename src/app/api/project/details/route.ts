@@ -7,8 +7,8 @@ const prisma = new PrismaClient()
 export const GET = async(req:Request,res:NextResponse)=>{
     try{
         let {searchParams} = new URL(req.url) ;
-        // @ts-ignore
-        let  id :string = (searchParams.get('id')) ;
+
+        let  id :string = (searchParams.get('id'))  ?? " ";
         // console.log(id)
         await connectToDatabase();
         const result = await prisma.project.findFirst({

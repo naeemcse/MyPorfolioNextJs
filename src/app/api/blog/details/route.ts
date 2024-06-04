@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import { connectToDatabase } from "@/helper/server-helper";
 import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client'
@@ -8,8 +8,10 @@ const prisma = new PrismaClient()
 export const GET = async(req:Request,res:NextResponse)=>{
     try{
         let {searchParams} = new URL(req.url) ;
-        let id = (searchParams.get('id')) ;
-        console.log(id)
+     // let id = "";
+     //   let id : string = (searchParams.get('id')) ;
+      //  console.log(id)
+        let id: string = searchParams.get('id') ?? '';
         await connectToDatabase();
         const result = await prisma.post.findFirst({
             orderBy: {
