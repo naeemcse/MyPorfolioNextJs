@@ -14,9 +14,7 @@ export const GET = async(req:Request,res:NextResponse)=>{
         let id: string = searchParams.get('id') ?? '';
         await connectToDatabase();
         const result = await prisma.post.findFirst({
-            orderBy: {
-                createdAt: 'desc'
-            },include:{comments:true} ,
+            include:{comments:true} ,
             where:{id:id},
         });
         return NextResponse.json({
