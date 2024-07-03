@@ -21,12 +21,12 @@ const Navbar = () => {
   const logintHandeler =()=>{
     signIn( undefined,{ callbackUrl: 'http://localhost:3000/' })
   }
-  const animationText = ['Hire me ', 'Message Me' ]
+  const animationText:string[] = ['Hire me ', 'Message Me' ]
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About me', path: '/about' },
     { name: 'Blog', path: '/blog' },
-    { name: <div className="w-[105px] text-primary">  <TypeWriterText  cursor={true} words={animationText}/></div>, path: '/contact'  },
+    { name: <div className="w-[105px] text-primary">  <TypeWriterText  cursor={true} words={animationText} /></div>, path: '/contact'  },
     { name: 'Dashboard', path: '/dashboard', auth: true }, // Optional: requires authentication
   ];
   return (

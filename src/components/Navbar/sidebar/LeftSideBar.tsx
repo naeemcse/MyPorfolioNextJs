@@ -25,7 +25,7 @@ export default function DrawerDemo({isLoggedIn}: {isLoggedIn: boolean}) {
     // Define a helper function to determine if a route is active
     const isActive = (path: string) => router === path;
     const {theme} = useTheme();
-    const animationText = ['Hire me ', 'Message Me' ]
+    const animationText:string[] = ['Hire me ', 'Message Me' ]
     const navItems = [
         { name: 'Home', path: '/' },
         { name: 'About me', path: '/about' },
