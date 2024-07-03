@@ -7,6 +7,7 @@ import Link from "next/link";
 import LogInLogout from "@/components/Navbar/LogInLogout";
 import {usePathname } from "next/navigation";
 import TypeWriterText from "@/components/shared/animation/TypeWriterText";
+import LeftSideBar from "@/components/Navbar/sidebar/LeftSideBar";
 
 const Navbar = () => {
   const router = usePathname ();
@@ -107,25 +108,9 @@ const Navbar = () => {
           <div>
             <ModeToggle/>
           </div>
-
-          <button className="rounded-full border border-[#919295] p-[10px] text-[20px] ml-2 ">
-          <svg
-                xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              height="1em"
-              width="1em"
-              className="text-muted"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
-              />
-            </svg>
-          </button>
+          <div className="ml-2" >
+          <LeftSideBar isLoggedIn={true}/>
+        </div>
         </div>
       </div>
     </div>
