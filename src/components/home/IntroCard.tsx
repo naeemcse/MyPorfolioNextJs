@@ -4,7 +4,7 @@ const IntroCard = () => {
   return (
     <section className="w-full mt-[30px] container">
       <div className="p-2 text-justify">
-        <p className="mt-8"> Hi ! There I'm </p>
+        <p className="mt-8"> Hi ! There I &#39; m </p>
         <h1 className="uppercase no-underline mt-[20px] text-[50px] ">
           {" "}
           Professional{" "}

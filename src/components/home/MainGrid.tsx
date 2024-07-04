@@ -108,7 +108,7 @@ const MainGrid = () => {
                       </div>
                       <div className="col-span-6 container">
 
-                          <p className="text-sm "> Let&apos;s Work  </p>
+                          <p className="text-sm "> Let &apos; s Work  </p>
                          <Link
                               href="/contact"
                               className="no-underline"
