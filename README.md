@@ -3,6 +3,7 @@
 This is a full-stack Next.js project where users can create a portfolio and write a blog. Users can create, update, and delete portfolios and blogs.
 
 ![Project Cover](./asset/images/projects/portfolio_mockup.png)
+<img src="./asset/images/projects/portfolio_mockup.png" align="center />
 
 ## Features
 
