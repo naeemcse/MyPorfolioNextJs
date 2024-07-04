@@ -31,7 +31,7 @@ const SideBar = () => {
       <div className="my-[30px]">
         <div className="text-center">
           <h3 className="uppercase ">
-            <span className="text-secondary-foreground"> Hy! I&#39;m </span>
+            <span className="text-secondary-foreground"> Hy! I &#39; m </span>
             <span className="text-primary"> Najmul Islam</span>
           </h3>
           <span className="text-primary"> Software Engineer </span>
