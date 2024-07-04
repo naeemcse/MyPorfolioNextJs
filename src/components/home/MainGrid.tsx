@@ -6,9 +6,8 @@ const MainGrid = () => {
     <div className="">
       <div className="grid grid-cols-12 gap-[30px]">
         <div className="col-span-12 md:col-span-5 ">
-          <div className="container text-center">
+          <div className="container">
             <Image
-                className="mx-auto"
               src="/logo.png"
               width={200}
               height={150}
@@ -26,7 +25,7 @@ const MainGrid = () => {
               </h1>
             </a>
           </div>
-            <div className="container text-center">
+            <div className="container">
                 <div className="flex gap-5 justify-center items-center ">
                     <div className="p-2 bg-muted rounded-full photo ">
                         <Image className="rounded-full cursor-pointer" src="/asset/images/react_icon.png" alt="React "
@@ -52,7 +51,7 @@ const MainGrid = () => {
                     </h1>
                 </a>
             </div>
-            <div className="container text-center">
+            <div className="container">
                 <div className="grid-12">
                     <div className="col-span-6">
                         <h1 className='text-primary'> 4+ </h1>
@@ -69,13 +68,13 @@ const MainGrid = () => {
 
         </div>
           <div className="col-span-12 md:col-span-7">
-              <div className="container text-center">
+              <div className="container">
                   <div className="flex justify-center gap-5">
                       <div className="overflow-hidden rounded-lg">
-                          <Image className="photo w-auto h-[100px]" src="/asset/images/web_app_cover.png" alt="" width={100} height={100}/>
+                          <img className="photo w-auto h-[100px]" src="/asset/images/web_app_cover.png" alt=""/>
                       </div>
                       <div className="overflow-hidden rounded-lg">
-                          <Image className="photo w-auto h-[100px]" src="/asset/images/web_app_cover2.png" alt="" width={100} height={100}/>
+                          <img className="photo w-auto h-[100px]" src="/asset/images/web_app_cover2.png" alt=""/>
                       </div>
 
                   </div>
@@ -94,7 +93,7 @@ const MainGrid = () => {
 
               </div>
                   <div className="grid-12">
-                      <div className="col-span-6 bg-primary container text-center">
+                      <div className="col-span-6 bg-primary container">
                           <p className="text-sm "> Visit My Blog  </p>
                           <a
                               href="/blog"
@@ -106,9 +105,9 @@ const MainGrid = () => {
                               </h1>
                           </a>
                       </div>
-                      <div className="col-span-6 container text-center">
+                      <div className="col-span-6 container">
 
-                          <p className="text-sm "> Let&#39;s Work  </p>
+                          <p className="text-sm "> Let's Work  </p>
                           <a
                               href="/contact"
                               className="no-underline"
@@ -121,7 +120,7 @@ const MainGrid = () => {
                       </div>
                   </div>
               <div className="container bg-[url('/asset/images/rivew.jpg')]  bg-no-repeat  h-1/3 bg-center bg-opacity-600 mb-40" >
-<div className="flex gap-5 text-center">
+<div className="flex gap-5">
     <div>
         <p className=""> What Client Says?</p>
         <a

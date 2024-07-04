@@ -7,7 +7,7 @@ const TagComponent = ({ tagString="" }) => {
     return (
         <div>
             {tags.map((tag, index) => (
-                <div className='text-background hover:text-primary bg-foreground  hover:bg-background cursor-pointer' key={index} style={tagStyle}>
+                <div className='text-card hover:text-primary bg-card-foreground  hover:bg-card cursor-pointer' key={index} style={tagStyle}>
                     {tag.trim()}
                 </div>
             ))}
