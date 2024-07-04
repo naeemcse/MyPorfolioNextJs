@@ -56,7 +56,7 @@ export default function DrawerDemo({isLoggedIn}: {isLoggedIn: boolean}) {
                             </DrawerClose>
                         </div>
                         {navItems.map((item) => {
-                            if (item.auth && status !== "authenticated") return null;
+                            if (item.auth) return null;
                             return (
                                     <Link key={item.path} href={item.path}
                                           className={`${isActive(item.path) ? 'text-primary' : 'text-muted'} p-2 hover:text-secondary-foreground hover:bg-secondary no-underline rounded ease-in duration-200 transition-all `}
