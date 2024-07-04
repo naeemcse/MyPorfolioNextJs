@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const MainGrid = () => {
   return (
@@ -15,7 +16,7 @@ const MainGrid = () => {
               title="Naeem"
             />
             <p className="text-muted"> Want To Know More </p>
-            <a
+           <Link
               href="/about"
               className="no-underline"
               rel="noopener noreferrer"
@@ -23,7 +24,7 @@ const MainGrid = () => {
               <h1 className="uppercase text-secondary-foreground">
                     About Me
               </h1>
-            </a>
+        </Link>
           </div>
             <div className="container">
                 <div className="flex gap-5 justify-center items-center ">
@@ -41,7 +42,7 @@ const MainGrid = () => {
                     </div>
                 </div>
                 <p className="text-secondary-foreground">Specialization </p>
-                <a
+               <Link
                     href="/service"
                     className="no-underline"
                     rel="noopener noreferrer"
@@ -49,7 +50,7 @@ const MainGrid = () => {
                     <h1 className="uppercase text-secondary-foreground">
                         Services
                     </h1>
-                </a>
+            </Link>
             </div>
             <div className="container">
                 <div className="grid-12">
@@ -80,22 +81,22 @@ const MainGrid = () => {
                   </div>
                   <div className="mt-[30px]">
                       <p className=""> Show Case View </p>
-                      <a
-                          href="/project"
+                     <Link
+                          href="/myproject"
                           className="no-underline"
                           rel="noopener noreferrer"
                       >
                           <h1 className="uppercase text-secondary-foreground">
                               Projcect
                           </h1>
-                      </a>
+                  </Link>
                   </div>
 
               </div>
                   <div className="grid-12">
                       <div className="col-span-6 bg-primary container">
                           <p className="text-sm "> Visit My Blog  </p>
-                          <a
+                         <Link
                               href="/blog"
                               className="no-underline"
                               rel="noopener noreferrer"
@@ -103,12 +104,12 @@ const MainGrid = () => {
                               <h1 className="uppercase text-secondary-foreground">
                                   Blog
                               </h1>
-                          </a>
+                      </Link>
                       </div>
                       <div className="col-span-6 container">
 
-                          <p className="text-sm "> Let's Work  </p>
-                          <a
+                          <p className="text-sm "> Let&apos;s Work  </p>
+                         <Link
                               href="/contact"
                               className="no-underline"
                               rel="noopener noreferrer"
@@ -116,14 +117,14 @@ const MainGrid = () => {
                               <h1 className="uppercase text-secondary-foreground text-2xl">
                                   Contact
                               </h1>
-                          </a>
+                      </Link>
                       </div>
                   </div>
               <div className="container bg-[url('/asset/images/rivew.jpg')]  bg-no-repeat  h-1/3 bg-center bg-opacity-600 mb-40" >
 <div className="flex gap-5">
     <div>
         <p className=""> What Client Says?</p>
-        <a
+       <Link
             href="/testimonial"
             className="no-underline"
             rel="noopener noreferrer"
@@ -131,7 +132,7 @@ const MainGrid = () => {
             <h1 className="uppercase text-secondary-foreground">
              Testimonial
             </h1>
-        </a>
+    </Link>
 
     </div>
 </div>
