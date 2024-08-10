@@ -8,10 +8,10 @@ import Link from "next/link";
 const SideBar = () => {
   const onButtonClick = () => {
     console.log("downlod hoi ki na")
-    const pdfUrl = "/Naeem_CV.pdf";
+    const pdfUrl = "/Naeem_Resume.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = "CV of Naeem .pdf"; // specify the filename
+    link.download = "Naeem_Resume.pdf"; // specify the filename
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -79,7 +79,7 @@ const SideBar = () => {
             </a>
           </div>
         <Button className="w-full my-5 hover:bg-background rounded-3xl"> <Link className="no-underline" href="/contact"> Hire Me   </Link></Button>
-        <Button className="w-full bg-background rounded-3xl" onClick={onButtonClick}> Download CV  </Button>
+        <Button className="w-full bg-background rounded-3xl" onClick={onButtonClick}> Download Resume  </Button>
 
         </div>
       </div>

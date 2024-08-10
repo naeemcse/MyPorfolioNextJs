@@ -72,5 +72,19 @@ export  const projects:projectsType[] = [
         github:"",
         category:"Web Application"
 
+    },
+    {
+        id:5,
+        title:"Video Sharing Platform",
+        body:"This is a android and IOS app for sharing video like youtube",
+        listItem:["Mobile Application"],
+        technologies:"React Native ,Expo,Appwrite",
+        createdAt:"2024-07-10",
+        image:"/asset/images/projects/mobile_symbol.jpg",
+        // video:"https://www.youtube.com/embed/-7MfHCCIRVs?si=E5wnbsCTlXJJdRVb",
+      //  liveLink:"https://naeemjs.vercel.app/",
+        github:"https://github.com/naeemcse/first-react-native-app",
+        category:"Mobile Application"
+
     }
 ]
