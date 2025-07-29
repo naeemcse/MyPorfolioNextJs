@@ -7,11 +7,11 @@ import Link from "next/link";
 
 const SideBar = () => {
   const onButtonClick = () => {
-    console.log("downlod hoi ki na")
-    const pdfUrl = "/Naeem_Resume.pdf";
+    //console.log("downlod hoi ki na")
+    const pdfUrl = "/Naeem_BS_Software_Engineer_ASPNet.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = "Naeem_Resume.pdf"; // specify the filename
+    link.download = "Naeem_BS_Software_Engineer_ASPNet.pdf"; // specify the filename
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
